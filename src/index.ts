@@ -1,6 +1,24 @@
 // Main client
 export { OuraClient, type OuraClientOptions } from './client/oura-client.js';
 
+// OAuth
+export {
+  OuraOAuth,
+  type OuraOAuthOptions,
+  type OAuthScope,
+  type TokenResponse,
+  type AuthorizationUrlResult,
+} from './oauth/oura-oauth.js';
+export {
+  loadTokens,
+  saveTokens,
+  deleteTokens,
+  isTokenExpired,
+  calculateExpiresAt,
+  type StoredTokens,
+} from './oauth/token-storage.js';
+export { startCallbackServer, type CallbackResult, type CallbackServerOptions } from './oauth/callback-server.js';
+
 // Errors
 export {
   AuthenticationError,
