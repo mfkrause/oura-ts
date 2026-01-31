@@ -87,3 +87,19 @@ export type {
 
 // Pagination
 export type { PaginatedIterator, DateRangeOptions, DateTimeRangeOptions } from './client/pagination.js';
+
+// Webhooks
+export { WebhooksResource, type CreateWebhookOptions, type UpdateWebhookOptions } from './resources/webhooks.js';
+
+// Decoders
+export {
+  decodeSleepPhases,
+  decodeMovement,
+  decodeActivityClass,
+  type SleepPhase,
+  type DecodedSleepPhase,
+  type MovementLevel,
+  type DecodedMovement,
+  type ActivityClass,
+  type DecodedActivityClass,
+} from './helpers/decoders.js';
