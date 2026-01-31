@@ -1,4 +1,4 @@
-import ky, { type KyInstance, type Options as KyOptions } from 'ky';
+import ky, { HTTPError, type KyInstance, type Options as KyOptions } from 'ky';
 
 import {
   AuthenticationError,
@@ -35,7 +35,7 @@ export type DateTimeRangeParams = {
 };
 
 async function handleError(error: unknown): Promise<never> {
-  if (error instanceof ky.HTTPError) {
+  if (error instanceof HTTPError) {
     const response = error.response;
     const body = await response.json().catch(() => undefined);
 
