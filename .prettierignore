@@ -2,6 +2,7 @@
 
 /dist
 /coverage
+/src/generated
 *.mdx
 *.md
 *.hbs
