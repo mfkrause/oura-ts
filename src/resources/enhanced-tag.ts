@@ -1,5 +1,4 @@
 import type { EnhancedTag } from '../types.js';
-
 import { DateRangeResource } from './base-resource.js';
 
 export class EnhancedTagResource extends DateRangeResource<EnhancedTag> {

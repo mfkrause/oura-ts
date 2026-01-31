@@ -1,5 +1,4 @@
 import type { Workout } from '../types.js';
-
 import { DateRangeResource } from './base-resource.js';
 
 export class WorkoutResource extends DateRangeResource<Workout> {

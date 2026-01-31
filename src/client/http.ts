@@ -22,13 +22,13 @@ export interface WebhookClientOptions {
   clientSecret: string;
 }
 
-export type DateRangeParams = {
+export type DateRangeParameters = {
   start_date?: string;
   end_date?: string;
   next_token?: string;
 };
 
-export type DateTimeRangeParams = {
+export type DateTimeRangeParameters = {
   start_datetime?: string;
   end_datetime?: string;
   next_token?: string;
@@ -37,7 +37,7 @@ export type DateTimeRangeParams = {
 async function handleError(error: unknown): Promise<never> {
   if (error instanceof HTTPError) {
     const response = error.response;
-    const body = await response.json().catch(() => undefined);
+    const body = await response.json().catch(() => {});
 
     switch (response.status) {
       case 401: {

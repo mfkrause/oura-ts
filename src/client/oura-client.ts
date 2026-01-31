@@ -1,4 +1,4 @@
-import { createHttpClient, type HttpClientOptions } from './http.js';
+import { type HttpClientOptions, createHttpClient } from './http.js';
 import { DailyActivityResource } from '../resources/daily-activity.js';
 import { DailyCardiovascularAgeResource } from '../resources/daily-cardiovascular-age.js';
 import { DailyReadinessResource } from '../resources/daily-readiness.js';
@@ -12,13 +12,13 @@ import { PersonalInfoResource } from '../resources/personal-info.js';
 import { RestModePeriodResource } from '../resources/rest-mode-period.js';
 import { RingConfigurationResource } from '../resources/ring-configuration.js';
 import { SessionResource } from '../resources/session.js';
-import { SleepResource } from '../resources/sleep.js';
 import { SleepTimeResource } from '../resources/sleep-time.js';
+import { SleepResource } from '../resources/sleep.js';
 import { TagResource } from '../resources/tag.js';
 import { VO2MaxResource } from '../resources/vo2-max.js';
 import { WorkoutResource } from '../resources/workout.js';
 
-export interface OuraClientOptions extends HttpClientOptions {}
+export type OuraClientOptions = HttpClientOptions;
 
 export class OuraClient {
   readonly personalInfo: PersonalInfoResource;

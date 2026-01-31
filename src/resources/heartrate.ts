@@ -1,5 +1,4 @@
 import type { HeartRate } from '../types.js';
-
 import { DateTimeRangeResource } from './base-resource.js';
 
 export class HeartRateResource extends DateTimeRangeResource<HeartRate> {

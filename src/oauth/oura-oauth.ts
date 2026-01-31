@@ -40,7 +40,7 @@ export class OuraOAuth {
 
   getAuthorizationUrl(state?: string): AuthorizationUrlResult {
     const generatedState = state ?? randomBytes(16).toString('hex');
-    const params = new URLSearchParams({
+    const parameters = new URLSearchParams({
       response_type: 'code',
       client_id: this.clientId,
       redirect_uri: this.redirectUri,
@@ -49,7 +49,7 @@ export class OuraOAuth {
     });
 
     return {
-      url: `${AUTHORIZATION_URL}?${params.toString()}`,
+      url: `${AUTHORIZATION_URL}?${parameters.toString()}`,
       state: generatedState,
     };
   }

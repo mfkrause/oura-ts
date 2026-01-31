@@ -1,4 +1,4 @@
-import { loadTokens, type StoredTokens } from '../oauth/token-storage.js';
+import { type StoredTokens, loadTokens } from '../oauth/token-storage.js';
 
 export interface GlobalOptions {
   tokenFile?: string;
@@ -7,9 +7,9 @@ export interface GlobalOptions {
 
 export async function getAccessToken(options: GlobalOptions): Promise<string> {
   // Check for direct token override via env var
-  const envToken = process.env['OURA_ACCESS_TOKEN'];
-  if (envToken) {
-    return envToken;
+  const environmentToken = process.env['OURA_ACCESS_TOKEN'];
+  if (environmentToken) {
+    return environmentToken;
   }
 
   // Load from token file

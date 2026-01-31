@@ -1,5 +1,4 @@
 import type { DailySleep } from '../types.js';
-
 import { DateRangeResource } from './base-resource.js';
 
 export class DailySleepResource extends DateRangeResource<DailySleep> {

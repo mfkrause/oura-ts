@@ -1,4 +1,4 @@
-import { createServer, type Server } from 'node:http';
+import { type Server, createServer } from 'node:http';
 import { URL } from 'node:url';
 
 export interface CallbackResult {
@@ -59,15 +59,18 @@ export function startCallbackServer(options: CallbackServerOptions): Promise<Cal
   const timeout = options.timeout ?? 300_000; // 5 minutes
 
   return new Promise((resolve, reject) => {
-    let server: Server;
-    let timeoutId: NodeJS.Timeout;
+    const state: { timeoutId?: NodeJS.Timeout; server?: Server } = {};
 
     const cleanup = () => {
-      clearTimeout(timeoutId);
-      server.close();
+      if (state.timeoutId) {
+        clearTimeout(state.timeoutId);
+      }
+      if (state.server) {
+        state.server.close();
+      }
     };
 
-    server = createServer((request, response) => {
+    state.server = createServer((request, response) => {
       if (!request.url) {
         return;
       }
@@ -114,18 +117,16 @@ export function startCallbackServer(options: CallbackServerOptions): Promise<Cal
       resolve({ code, state });
     });
 
-    server.listen(port, () => {
-      // Server started
-    });
-
-    server.on('error', (error) => {
-      cleanup();
-      reject(error);
-    });
-
-    timeoutId = setTimeout(() => {
+    state.timeoutId = setTimeout(() => {
       cleanup();
       reject(new Error('Authorization timeout'));
     }, timeout);
+
+    state.server.listen(port);
+
+    state.server.on('error', (error) => {
+      cleanup();
+      reject(error);
+    });
   });
 }

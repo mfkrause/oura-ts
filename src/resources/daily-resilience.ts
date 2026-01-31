@@ -1,5 +1,4 @@
 import type { DailyResilience } from '../types.js';
-
 import { DateRangeResource } from './base-resource.js';
 
 export class DailyResilienceResource extends DateRangeResource<DailyResilience> {

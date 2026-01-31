@@ -55,19 +55,19 @@ export function paginateDateRange<T>(
   options: DateRangeOptions = {}
 ): PaginatedIterator<T> {
   return createPaginatedIterator(async (nextToken) => {
-    const searchParams: Record<string, string> = {};
+    const searchParameters: Record<string, string> = {};
 
     if (options.startDate) {
-      searchParams['start_date'] = options.startDate;
+      searchParameters['start_date'] = options.startDate;
     }
     if (options.endDate) {
-      searchParams['end_date'] = options.endDate;
+      searchParameters['end_date'] = options.endDate;
     }
     if (nextToken) {
-      searchParams['next_token'] = nextToken;
+      searchParameters['next_token'] = nextToken;
     }
 
-    return get<PaginatedResponse<T>>(client, path, { searchParams });
+    return get<PaginatedResponse<T>>(client, path, { searchParams: searchParameters });
   });
 }
 
@@ -77,18 +77,18 @@ export function paginateDateTimeRange<T>(
   options: DateTimeRangeOptions = {}
 ): PaginatedIterator<T> {
   return createPaginatedIterator(async (nextToken) => {
-    const searchParams: Record<string, string> = {};
+    const searchParameters: Record<string, string> = {};
 
     if (options.startDatetime) {
-      searchParams['start_datetime'] = options.startDatetime;
+      searchParameters['start_datetime'] = options.startDatetime;
     }
     if (options.endDatetime) {
-      searchParams['end_datetime'] = options.endDatetime;
+      searchParameters['end_datetime'] = options.endDatetime;
     }
     if (nextToken) {
-      searchParams['next_token'] = nextToken;
+      searchParameters['next_token'] = nextToken;
     }
 
-    return get<PaginatedResponse<T>>(client, path, { searchParams });
+    return get<PaginatedResponse<T>>(client, path, { searchParams: searchParameters });
   });
 }

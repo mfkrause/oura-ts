@@ -1,10 +1,10 @@
-import { defineConfig, globalIgnores } from 'eslint/config';
-import globals from 'globals';
 import eslint from '@eslint/js';
-import unicornPlugin from 'eslint-plugin-unicorn';
+import { defineConfig, globalIgnores } from 'eslint/config';
 import prettierConfig from 'eslint-config-prettier/flat';
-import tseslint from 'typescript-eslint';
 import importPlugin from 'eslint-plugin-import';
+import unicornPlugin from 'eslint-plugin-unicorn';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
 export default defineConfig([
   globalIgnores(['**/.*.js', '**/node_modules/', '**/dist/', '**/src/generated/', '**/*-env.d.ts', '**/*.config.cjs']),
@@ -78,5 +78,11 @@ export default defineConfig([
   },
   {
     files: ['**/*.js?(x)', '**/*.ts?(x)'],
+  },
+  {
+    files: ['src/cli/**/*.ts'],
+    rules: {
+      'unicorn/no-process-exit': 'off',
+    },
   },
 ]);

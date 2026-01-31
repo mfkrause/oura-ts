@@ -2,7 +2,7 @@ import { Command } from 'commander';
 import open from 'open';
 
 import { startCallbackServer } from '../../oauth/callback-server.js';
-import { OuraOAuth, type OAuthScope } from '../../oauth/oura-oauth.js';
+import { type OAuthScope, OuraOAuth } from '../../oauth/oura-oauth.js';
 import { calculateExpiresAt, deleteTokens, isTokenExpired, loadTokens, saveTokens } from '../../oauth/token-storage.js';
 import type { GlobalOptions } from '../config.js';
 

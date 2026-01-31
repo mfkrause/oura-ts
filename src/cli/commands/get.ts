@@ -3,7 +3,7 @@ import { Command } from 'commander';
 import { OuraClient } from '../../client/oura-client.js';
 import { decodeActivityClass, decodeMovement, decodeSleepPhases } from '../../helpers/decoders.js';
 import type { DailyActivity, Sleep } from '../../types.js';
-import { getAccessToken, type GlobalOptions } from '../config.js';
+import { type GlobalOptions, getAccessToken } from '../config.js';
 
 const RESOURCES = [
   'personal-info',

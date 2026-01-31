@@ -1,6 +1,6 @@
-import { readFile, writeFile, unlink } from 'node:fs/promises';
+import { readFile, unlink, writeFile } from 'node:fs/promises';
 import { homedir } from 'node:os';
-import { join } from 'node:path';
+import path from 'node:path';
 
 const DEFAULT_TOKEN_FILE = '.oura_token';
 
@@ -16,7 +16,7 @@ function getTokenFilePath(): string {
   if (process.env['OURA_TOKEN_FILE']) {
     return process.env['OURA_TOKEN_FILE'];
   }
-  return join(homedir(), DEFAULT_TOKEN_FILE);
+  return path.join(homedir(), DEFAULT_TOKEN_FILE);
 }
 
 export async function loadTokens(tokenFilePath?: string): Promise<StoredTokens | null> {

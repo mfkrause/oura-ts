@@ -1,6 +1,6 @@
 import type { KyInstance } from 'ky';
 
-import { createWebhookClient, del, get, post, put, type WebhookClientOptions } from '../client/http.js';
+import { type WebhookClientOptions, createWebhookClient, del, get, post, put } from '../client/http.js';
 import type {
   CreateWebhookSubscriptionRequest,
   UpdateWebhookSubscriptionRequest,
