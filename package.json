@@ -1,6 +1,6 @@
 {
   "name": "oura-ts",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "TypeScript library and CLI for the Oura Ring API v2",
   "type": "module",
   "exports": {
