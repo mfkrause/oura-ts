@@ -1,15 +1,39 @@
 {
   "name": "oura-ts",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "version": "0.1.0",
+  "description": "TypeScript library and CLI for the Oura Ring API v2",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
   },
-  "keywords": [],
+  "bin": {
+    "oura": "./dist/cli/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "format": "prettier --write src/",
+    "format:check": "prettier --check src/",
+    "generate:types": "openapi-typescript openapi.json -o src/generated/types.ts",
+    "prebuild": "pnpm run generate:types",
+    "test": "vitest"
+  },
+  "keywords": ["oura", "oura-ring", "api", "health", "sleep", "fitness"],
   "author": "Maximilian Krause",
   "license": "MIT",
   "packageManager": "pnpm@10.23.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "commander": "^13.1.0",
+    "open": "^10.1.2"
+  },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
     "@types/node": "^24.10.9",
@@ -17,6 +41,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-unicorn": "^62.0.0",
+    "openapi-typescript": "^7.8.0",
     "prettier": "^3.8.1",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.54.0",
