@@ -1,11 +1,25 @@
 # oura-ts
 
+[![CI](https://github.com/mfkrause/oura-ts/actions/workflows/ci.yml/badge.svg)](https://github.com/mfkrause/oura-ts/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/oura-ts)](https://www.npmjs.com/package/oura-ts)
+
 TypeScript library and CLI for the Oura Ring API v2.
 
 ## Installation
 
+### As a library
+
 ```bash
-pnpm add oura-ts
+npm install oura-ts
+```
+
+### As a global CLI
+
+```bash
+npm install -g oura-ts
+
+# Then use directly
+oura --help
 ```
 
 ## Library Usage
