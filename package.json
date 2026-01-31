@@ -23,7 +23,14 @@
     "prebuild": "pnpm run generate:types",
     "test": "vitest"
   },
-  "keywords": ["oura", "oura-ring", "api", "health", "sleep", "fitness"],
+  "keywords": [
+    "oura",
+    "oura-ring",
+    "api",
+    "health",
+    "sleep",
+    "fitness"
+  ],
   "author": "Maximilian Krause",
   "license": "MIT",
   "packageManager": "pnpm@10.23.0",
@@ -32,6 +39,7 @@
   },
   "dependencies": {
     "commander": "^13.1.0",
+    "ky": "^1.14.3",
     "open": "^10.1.2"
   },
   "devDependencies": {
