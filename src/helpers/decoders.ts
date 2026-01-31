@@ -50,7 +50,7 @@ const ACTIVITY_CLASS_MAP: Record<string, ActivityClass> = {
  * - '3' = REM sleep
  * - '4' = awake
  */
-export function decodeSleepPhases(encoded: string | null | undefined): DecodedSleepPhase[] {
+export function decodeSleepPhases(encoded?: string | null): DecodedSleepPhase[] {
   if (!encoded) {
     return [];
   }
@@ -69,7 +69,7 @@ export function decodeSleepPhases(encoded: string | null | undefined): DecodedSl
  * - '3' = tossing and turning
  * - '4' = active
  */
-export function decodeMovement(encoded: string | null | undefined): DecodedMovement[] {
+export function decodeMovement(encoded?: string | null): DecodedMovement[] {
   if (!encoded) {
     return [];
   }
@@ -90,7 +90,7 @@ export function decodeMovement(encoded: string | null | undefined): DecodedMovem
  * - '4' = medium activity
  * - '5' = high activity
  */
-export function decodeActivityClass(encoded: string | null | undefined): DecodedActivityClass[] {
+export function decodeActivityClass(encoded?: string | null): DecodedActivityClass[] {
   if (!encoded) {
     return [];
   }

@@ -245,6 +245,31 @@ Husky is configured with:
 - **pre-commit**: Runs typecheck, lint, and auto-formats code
 - **commit-msg**: Validates conventional commit messages
 
+### Testing
+
+```bash
+# Run all tests
+pnpm test
+
+# Run tests in watch mode
+pnpm test
+
+# Run with coverage
+pnpm test run --coverage
+```
+
+Tests are organized in three layers:
+
+1. **Unit tests** (`src/**/*.test.ts`) - Pure function tests (decoders, token storage)
+2. **Mocked client tests** (`tests/client.test.ts`) - HTTP layer mocked with MSW
+3. **Integration tests** (`tests/integration/`) - Real API calls, skipped if `OURA_ACCESS_TOKEN` not set
+
+To run integration tests:
+
+```bash
+OURA_ACCESS_TOKEN=your-token pnpm test run tests/integration/
+```
+
 ## License
 
 MIT
